@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class JusoController {
@@ -18,5 +19,11 @@ public class JusoController {
     @PostMapping("/juso/callback")
     public void jusoCallback(String roadFullAddr) {
         System.out.println(roadFullAddr);
+        Store.roadFullAddr = roadFullAddr;
+    }
+
+    @GetMapping("/juso/check")
+    public @ResponseBody String jusoCheck() {
+        return Store.roadFullAddr;
     }
 }

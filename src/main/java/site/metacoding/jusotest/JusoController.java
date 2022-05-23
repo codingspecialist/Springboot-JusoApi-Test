@@ -16,6 +16,7 @@ public class JusoController {
         return "home";
     }
 
+    // 해당 콜백이 호출되면 push해주는 것이 좋다. (웹소켓, SSE)
     @PostMapping("/juso/callback")
     public void jusoCallback(String roadFullAddr) {
         System.out.println(roadFullAddr);

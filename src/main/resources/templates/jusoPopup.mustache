@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <input type="hidden" id="roadFullAddr" value="{{roadFullAddr}}" />
+
+    <form action="{{jusoUrl}}" method="get">
+        <input type="hidden" name="confmKey" value="{{confmKey}}" />
+        <input type="hidden" name="returnUrl" value="{{returnUrl}}" />
+        <input type="hidden" name="resultType" value="{{resultType}}" />
+        <button type="submit" id="btn-submit"></button>
+    </form>
+
+    <script>
+        let roadFullAddr = $("#roadFullAddr").val();
+        if (roadFullAddr == "N") {
+            $("#btn-submit").click();
+        } else {
+            opener.jusoCallBack(roadFullAddr);
+            window.close();
+        }
+    </script>
+</body>
+
+</html>
